@@ -21,7 +21,7 @@ int main() {
 	sang();
 	int t; cin >> t;
 	while(t--){
-		int a,b; cin >> a >> b;
+		long long a,b; cin >> a >> b;
         int cnt = 0;
 		for(int i = sqrt(a); i <= sqrt(b); i++){
 			if(prime[i]){
