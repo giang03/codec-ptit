@@ -14,7 +14,7 @@ int main(){
         stringstream ss(n);
         string tmp = "";
         while(ss >> tmp){
-            ans = max(ans,stoi(tmp));
+            ans += stoi(tmp);
         }
         cout << ans << endl;
     }

@@ -1,4 +1,3 @@
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -14,14 +13,17 @@ ll bcnn(ll a, ll b){
 }
 
 int main() {
-	int x,y,z,n; cin >> x >> y >> z >> n;
-	ll a = pow(10,n-1), b = pow(10,n);
-	ll c = bcnn(x,bcnn(y,z));
-	if(c > b) cout << -1 << endl;
-	else if(c >= a) cout << c << endl;
-	else {
-		c = 1ll*(a/c+1)*c;
-		cout << c << endl; 
+	int t; cin >> t; 
+	while(t--){
+		ll x, y, z, n; cin >> x >> y >> z >> n;
+		ll res = bcnn(x,bcnn(y,z));
+		ll a = pow(10, n-1), b = pow(10, n);
+		ll Min = (a + res - 1)/res * res;
+		if(Min >= b) cout << "-1\n";
+		else
+		{
+		cout << Min << endl;
+		}
 	}
     return 0;
 }
