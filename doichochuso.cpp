@@ -3,21 +3,28 @@
 using namespace std;
 using ll = long long;
 
+bool difference(string s, string tmp){
+    int cnt = 0;
+    for(int i = 0; i < s.size(); i++){
+        if(s[i] != tmp[i]) cnt++;
+    }
+    return cnt == 2;
+}
+
 int main(){
 	int t; cin >> t; 
 	while(t--){
 		string s; cin >> s;
-        bool ok = 1;
-        for(int i = s.size() - 1 ; i > 0; i--){
-            if(s[i] < s[i - 1]){
-                swap(s[i],s[i-1]);
-                ok = 0;
-                break;
-            }
+        string tmp = s;
+        if(is_sorted(s.begin(), s.end())) {
+            cout << -1 << endl;
         }
-        if(ok) cout << -1 << endl;
-        else 
+        else {
+            while (!difference(s, tmp)) {
+                prev_permutation(s.begin(), s.end()); 
+            } 
             cout << s << endl;
+        }
 	}
     return 0;
 }
